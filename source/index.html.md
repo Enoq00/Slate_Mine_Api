@@ -1,241 +1,352 @@
----
-title: API Reference
+--- 
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+title: LiveCasino.Report 
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+language_tabs: 
+   - shell 
 
-includes:
-  - errors
+toc_footers: 
+   - <a href='#'>Sign Up for a Developer Key</a> 
+   - <a href='https://github.com/lavkumarv'>Documentation Powered by lav</a> 
 
-search: true
+includes: 
+   - errors 
 
-code_clipboard: true
----
+search: true 
 
-# Introduction
+--- 
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+# Introduction 
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+**Version:** v1 
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# /API/BLACKJACKGAMEREPORTS
+## ***GET*** 
 
-# Authentication
+### HTTP Request 
+`***GET*** /api/BlackjackGameReports` 
 
-> To authorize, use this code:
+**Parameters**
 
-```ruby
-require 'kittn'
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| GameId | query |  | No |  |
+| GameStartTime | query |  | No |  |
+| GameEndTime | query |  | No |  |
+| PartnerId | query |  | No |  |
+| DealerName | query |  | No |  |
+| DealerIdForNickname | query |  | No |  |
+| CurrencyCode | query |  | No |  |
+| TableId | query |  | No |  |
+| RoundStatus | query |  | No |  |
+| IsSortAsc | query |  | No |  |
+| From | query |  | No |  |
+| Count | query |  | No |  |
+| Search | query |  | No |  |
+| ColName | query |  | No |  |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+**Responses**
 
-```python
-import kittn
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-api = kittn.authorize('meowmeowmeow')
-```
+# /API/BLACKJACKGAMEREPORTS/{ROUNDID}
+## ***GET*** 
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
+### HTTP Request 
+`***GET*** /api/BlackjackGameReports/{roundId}` 
 
-```javascript
-const kittn = require('kittn');
+**Parameters**
 
-let api = kittn.authorize('meowmeowmeow');
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| roundId | path |  | Yes |  |
+| partnerId | query |  | No |  |
 
-> Make sure to replace `meowmeowmeow` with your API key.
+**Responses**
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+# /API/BLACKJACKPLAYERDETAIL/{ROUNDID}
+## ***GET*** 
 
-`Authorization: meowmeowmeow`
+### HTTP Request 
+`***GET*** /api/BlackjackPlayerDetail/{roundId}` 
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+**Parameters**
 
-# Kittens
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| roundId | path |  | Yes |  |
+| partnerId | query |  | No |  |
 
-## Get All Kittens
+**Responses**
 
-```ruby
-require 'kittn'
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+# /API/BLACKJACKPLAYERDETAIL/ACTIVEROUNDHISTORY/{TABLEID}
+## ***GET*** 
 
-```python
-import kittn
+### HTTP Request 
+`***GET*** /api/BlackjackPlayerDetail/ActiveRoundHistory/{tableId}` 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+**Parameters**
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| tableId | path |  | Yes |  |
 
-```javascript
-const kittn = require('kittn');
+**Responses**
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-> The above command returns JSON structured like this:
+# /API/BLACKJACKPLAYERREPORTS/{ROUNDID}
+## ***GET*** 
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+### HTTP Request 
+`***GET*** /api/BlackjackPlayerReports/{roundId}` 
 
-This endpoint retrieves all kittens.
+**Parameters**
 
-### HTTP Request
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| roundId | path |  | Yes |  |
+| partnerId | query |  | No |  |
 
-`GET http://example.com/api/kittens`
+**Responses**
 
-### Query Parameters
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+# /API/BLACKJACKPLAYERREPORTS/ACTIVEPLAYERS
+## ***GET*** 
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+### HTTP Request 
+`***GET*** /api/BlackjackPlayerReports/ActivePlayers` 
 
-## Get a Specific Kitten
+**Parameters**
 
-```ruby
-require 'kittn'
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| tableId | query |  | No |  |
+| boxId | query |  | No |  |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+**Responses**
 
-```python
-import kittn
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+# /API/BLACKJACKPLAYERREPORTS/TOTALBETS
+## ***GET*** 
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
+### HTTP Request 
+`***GET*** /api/BlackjackPlayerReports/TotalBets` 
 
-```javascript
-const kittn = require('kittn');
+**Parameters**
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| tableIds | query |  | No |  |
 
-> The above command returns JSON structured like this:
+**Responses**
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-This endpoint retrieves a specific kitten.
+# /API/BLACKJACKREPORTFORPLAYERPROFILE
+## ***GET*** 
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+### HTTP Request 
+`***GET*** /api/BlackjackReportForPlayerProfile` 
 
-### HTTP Request
+**Parameters**
 
-`GET http://example.com/kittens/<ID>`
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| playerId | query |  | No |  |
+| roundId | query |  | No |  |
+| date | query |  | No |  |
+| partnerId | query |  | No |  |
 
-### URL Parameters
+**Responses**
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-## Delete a Specific Kitten
+# /API/GAMEISSUES/FORDAY
+## ***GET*** 
 
-```ruby
-require 'kittn'
+### HTTP Request 
+`***GET*** /api/GameIssues/forday` 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+**Parameters**
 
-```python
-import kittn
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| unixSeconds | query |  | No |  |
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+**Responses**
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-```javascript
-const kittn = require('kittn');
+# /API/GAMEROUNDS/ID
+## ***GET*** 
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+### HTTP Request 
+`***GET*** /api/GameRounds/id` 
 
-> The above command returns JSON structured like this:
+**Responses**
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-This endpoint deletes a specific kitten.
+# /API/PLAYERREPORTS/GETGAMESHISTORY
+## ***GET*** 
 
-### HTTP Request
+### HTTP Request 
+`***GET*** /api/PlayerReports/getGamesHistory` 
 
-`DELETE http://example.com/kittens/<ID>`
+**Parameters**
 
-### URL Parameters
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| playerId | query |  | No |  |
+| from | query |  | No |  |
+| count | query |  | No |  |
+| offset | query |  | No |  |
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+**Responses**
 
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/GETROUNDDATA
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /api/PlayerReports/getRoundData` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| playerId | query |  | No |  |
+| roundId | query |  | No |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/GETPLAYERS
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /api/PlayerReports/getPlayers` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/COUNTS
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /api/PlayerReports/counts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| ReportStartDate | query |  | No |  |
+| ReportEndDate | query |  | No |  |
+| PartnerId | query |  | No |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/PROFILE
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /api/PlayerReports/profile` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/PROFILE/SUMMARY
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /api/PlayerReports/profile/summary` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| ReportStartDate | query |  | No |  |
+| ReportEndDate | query |  | No |  |
+| PlayerId | query |  | No |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/PROFILE/SINGLEDAY
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /api/PlayerReports/profile/singleday` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| playerId | query |  | No |  |
+| date | query |  | No |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /API/PLAYERREPORTS/LOGIN
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /api/PlayerReports/login` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
